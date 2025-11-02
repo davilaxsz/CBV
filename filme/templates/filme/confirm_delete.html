@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Excluir Filme{% endblock %}
+
+{% block content %}
+<div class="card mt-4 border-danger">
+    <div class="card-header bg-danger text-white">
+        <h2 class="mb-0">Confirmar Exclusão</h2>
+    </div>
+    <div class="card-body">
+        <p>Tem certeza que deseja excluir o filme <strong>"{{ object.titulo }}"</strong>?</p>
+    </div>
+    <div class="card-footer d-flex gap-2">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+        </form>
+        <a href="{% url 'filme_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</div>
+{% endblock %}

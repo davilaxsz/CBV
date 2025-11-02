@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalhes do Filme{% endblock %}
+
+{% block content %}
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white">
+        <h2 class="mb-0">{{ filme.titulo }}</h2>
+    </div>
+    <div class="card-body">
+        <p><strong>Diretor:</strong> {{ filme.diretor }}</p>
+        <p><strong>Gênero:</strong> {{ filme.genero }}</p>
+        <p><strong>Ano:</strong> {{ filme.ano }}</p>
+        <p><strong>Avaliação:</strong> {{ filme.avaliacao }}</p>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'filme_listar' %}" class="btn btn-secondary">Voltar</a>
+        <a href="{% url 'filme_editar' filme.pk %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'filme_excluir' filme.pk %}" class="btn btn-danger">Excluir</a>
+    </div>
+</div>
+{% endblock %}
